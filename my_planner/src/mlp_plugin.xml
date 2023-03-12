@@ -1,0 +1,9 @@
+<library path="lib/libmy_local_planner">
+    <class name="my_local_planner/MyLocalPlanner" 
+        type="my_local_planner::MyLocalPlanner"
+        base_class_type="nav_core::BaseLocalPlanner">
+        <description>
+            My Local Planner Plugin for CS685
+        </description>
+    </class>
+</library>
