@@ -5,6 +5,7 @@
 #include <nav_core/base_local_planner.h>
 #include <base_local_planner/local_planner_util.h>
 #include <base_local_planner/odometry_helper_ros.h>
+#include <visualization_msgs/Marker.h>
 
 #include <nav_msgs/Path.h>
 #include <nav_msgs/Odometry.h>
@@ -56,11 +57,12 @@ namespace my_local_planner
     private:
         void odomCallback(const nav_msgs::Odometry::ConstPtr& msg);
         ros::Subscriber odom_sub_; 
+        ros::Publisher vis_pub;
         costmap_2d::Costmap2DROS *myCostmapRos;
         costmap_2d::Costmap2D *myCostmap;
         tf2_ros::Buffer *tf_;
         bool initialized_;
-
+        uint64_t markerId;
         PositionDelta lastPositionDelta;
         
         std::vector<geometry_msgs::PoseStamped> global_plan;
